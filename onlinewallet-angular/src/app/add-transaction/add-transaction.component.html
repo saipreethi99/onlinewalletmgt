@@ -1,0 +1,77 @@
+ <form #myform=ngForm (ngSubmit)="myform.valid &&  addTransaction(myform)">
+
+          <div class="col-7" style="margin-top: 20px;">
+              <input type="number" name="accountId" placeholder="Transaction accountId" required minlength="3" ngModel #accountIdCtrl=ngModel class="form-control" >    
+          </div>
+          
+          <div *ngIf="accountIdCtrl.errors!=null && accountIdCtrl.errors.required" class="error">
+           Id is required
+          </div>
+      
+          <div *ngIf="accountIdCtrl.errors!=null && accountIdCtrl.errors.minlength" class="error">
+              minlength of id is 1
+             </div>
+          
+          
+          <div class="col-7">
+              <input type="number" name="amount" placeholder="Transaction amount" required minlength="3" ngModel #amountCtrl=ngModel class="form-control" >    
+          </div>
+          
+          <div *ngIf="amountCtrl.errors!=null && amountCtrl.errors.required" class="error">
+           amount is required
+          </div>
+          <div *ngIf="amountCtrl.errors!=null && amountCtrl.errors.minlength" class="error">
+              minlength of amount is 4
+             </div>
+          
+             <div class="col-7">
+              <input type="number" name="newBalance" placeholder="Transaction newBalance" required minlength="3" ngModel #newBalanceCtrl=ngModel class="form-control" >    
+          </div>
+          
+          <div *ngIf="newBalanceCtrl.errors!=null && newBalanceCtrl.errors.required" class="error">
+           amount is required
+          </div>
+          <div *ngIf="newBalanceCtrl.errors!=null && newBalanceCtrl.errors.minlength" class="error">
+              minlength of amount is 4
+             </div>
+      
+      
+             <div class="col-7">
+              <input type="text" name="type" placeholder="Transaction type" required minlength="3" ngModel #typeCtrl=ngModel class="form-control" >    
+          </div>
+          
+          <div *ngIf="typeCtrl.errors!=null && typeCtrl.errors.required" class="error">
+           type is required
+          </div>
+          <div *ngIf="typeCtrl.errors!=null && typeCtrl.errors.minlength" class="error">
+              minlength of type is 8
+             </div>
+      
+      
+             <div style="position:absolute;margin-left: 10px; margin-top: 10px;">
+          <input type="submit" value="Submit"  class="btn btn-primary">    
+          </div>
+          </form>
+              <br>
+              
+              <div class ="container" *ngIf="transaction!==undefined">
+               <h3>Transaction Added </h3>   
+               <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">AccountId</th>
+                      <th scope="col">Amount</th>
+                      <th scope="col">NewBalance</th>
+                      <th scope="col">Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row">{{transaction.accountId}}</td>
+                      <td>{{transaction.amount}}</td>
+                      <td>{{transaction.newBalance}}</td>
+                      <td>{{transaction.type}}</td>
+                    </tr>
+                    </tbody>
+                    </table>
+              </div>
