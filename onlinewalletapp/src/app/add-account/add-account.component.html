@@ -1,0 +1,86 @@
+<form #myform=ngForm (ngSubmit)="myform.valid &&  addAccount(myform)">
+
+    <div class="col-7" style="margin-top: 20px;">
+        <input type="number" name="accountId" placeholder="accountId" required minlength="3" ngModel #accountIdCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="accountIdCtrl.errors!=null && accountIdCtrl.errors.required" class="error">
+        accountId is required
+    </div>
+    
+    
+    <div *ngIf="accountIdCtrl.errors!=null && accountIdCtrl.errors.minlength" class="error">
+        minlength of name is 3
+       </div>
+
+
+    <div class="col-7" style="margin-top: 20px;">
+        <input type="number" name="accountBalance" placeholder="accountBalance" required minlength="3" ngModel #accountBalanceCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="accountBalanceCtrl.errors!=null && accountBalanceCtrl.errors.required" class="error">
+        accountBalance is required
+    </div>
+    
+    
+    <div *ngIf="accountBalanceCtrl.errors!=null && accountBalanceCtrl.errors.minlength" class="error">
+        minlength of name is 3
+       </div>
+    
+    
+       <div class="col-7">
+        <input type="any" name="status" placeholder="status" required minlength="3" ngModel #statusCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="statusCtrl.errors!=null && statusCtrl.errors.required" class="error">
+        status is required
+    </div>
+    
+    
+    <div *ngIf="userIdCtrl.errors!=null && userIdCtrl.errors.minlength" class="error">
+        minlength of userId is 3
+       </div>
+
+    
+    
+    <div class="col-7">
+        <input type="number" name="userId" placeholder="userId" required minlength="3" ngModel #userIdCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="userIdCtrl.errors!=null && userIdCtrl.errors.required" class="error">
+        userId is required
+    </div>
+    
+    
+    <div *ngIf="userIdCtrl.errors!=null && userIdCtrl.errors.minlength" class="error">
+        minlength of userId is 3
+       </div>
+    
+       <div style="position:absolute;margin-left: 10px; margin-top: 10px;">
+    <input type="submit" value="Submit"  class="btn btn-primary">    
+    </div>
+    </form>
+        <br>
+        
+        <div class ="container" *ngIf="account!==undefined">
+         <h3>Account Added </h3>   
+         <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">accountId</th>
+                <th scope="col">accountBalance</th>
+                <th scope="col">status</th>
+                <th scope="col">userId</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row">{{account.accountId}}</td>
+                <td>{{account.accountBalance}}</td>
+                <td>{{account.status}}</td>
+                <td>{{account.userId}}</td>
+              </tr>
+              </tbody>
+              </table>
+        </div>
