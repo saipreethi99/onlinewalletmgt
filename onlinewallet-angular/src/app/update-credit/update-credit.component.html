@@ -1,0 +1,45 @@
+<h3>Credit</h3>
+
+<div style="margin-top: 20px; margin-bottom: 50px;">
+<form #myform=ngForm (ngSubmit)="myform.valid && updateCredit(myform)">
+    
+    <div class="form-group">
+        <label>Amount</label>
+        <input type="number" name="amount" placeholder="amount" required minlength="3" ngModel #amountCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="amountCtrl.errors!=null && amountCtrl.errors.required" class="error">
+        amount is required
+    </div>
+    
+    
+    <div *ngIf="amountCtrl.errors!=null && amountCtrl.errors.minlength" class="error">
+        minlength of name is 3
+    </div>
+
+    <input type="submit" value="Submit"  class="btn btn-primary">    
+    
+</form>
+</div>
+<div *ngIf="account!==undefined">
+    <h3>Credit Added </h3>   
+    <table class="table table-bordered">
+       <thead>
+         <tr>
+           <th>accountId</th>
+           <th>amount</th>
+           <th>Balance</th>
+
+         </tr>
+       </thead>
+       
+       <tbody>
+         <tr>
+           <td>{{credit.accountId}}</td>
+           <td>{{credit.amount}}</td>
+           <td>{{account.accountBalance}}</td>
+         </tr>
+         </tbody>
+     </table>
+
+</div>

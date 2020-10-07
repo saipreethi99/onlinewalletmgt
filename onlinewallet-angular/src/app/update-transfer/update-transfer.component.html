@@ -1,0 +1,59 @@
+<h3>Transfer</h3>
+
+<div style="margin-top:20px;margin-bottom: 50px;">
+<form #myform=ngForm (ngSubmit)="myform.valid && updateTransfer(myform)">
+    <div class="form-group">
+        <label>Credited Account Id</label>   
+        <input type="number" name="creditedAccountId" placeholder="creditedAccountId" required minlength="3" ngModel #creditedAccountIdCtrl=ngModel class="form-control" >    
+    
+    <div *ngIf="creditedAccountIdCtrl.errors!=null && creditedAccountIdCtrl.errors.required" class="error">
+        creditedAccountId is required
+    </div>
+    
+    <div *ngIf="creditedAccountIdCtrl.errors!=null && creditedAccountIdCtrl.errors.minlength" class="error">
+        minlength of name is 3
+       </div>
+    </div>
+
+    <div class="form-group">
+        <label>Amount</label>
+        <input type="number" name="amount" placeholder="amount" required minlength="3" ngModel #amountCtrl=ngModel class="form-control" >    
+    
+    
+    <div *ngIf="amountCtrl.errors!=null && amountCtrl.errors.required" class="error">
+        amount is required
+    </div>
+    
+    
+    <div *ngIf="amountCtrl.errors!=null && amountCtrl.errors.minlength" class="error">
+        minlength of name is 3
+    </div>
+    </div>
+
+        <input type="submit" value="Submit"  class="btn btn-primary">    
+    
+</form>
+</div>
+
+<div *ngIf="account!==undefined">
+    <h3>Transfer Done </h3>   
+    <table class="table table-bordered">
+       <thead>
+         <tr>
+           <th>Transfered Amount</th>
+            <th>Current Balance</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+             
+           <td>{{transfer.amount}}</td> 
+
+           <td>{{account.accountBalance | currency:'INR'}}</td>
+
+         </tr>
+         </tbody>
+         </table>
+   </div>
+
+

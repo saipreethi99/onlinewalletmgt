@@ -4,6 +4,7 @@ export class Transaction{
   amount:number;
   newBalance:number;
   type:string;
+
   constructor(transactionId:number,accountId:number, amount:number,newBalance:number,type:string){
       this.transactionId=transactionId;
       this.accountId=accountId;

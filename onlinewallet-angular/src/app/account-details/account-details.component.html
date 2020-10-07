@@ -1,0 +1,41 @@
+<h3>Account details</h3>
+
+  
+  <div *ngIf="account!==undefined" style="margin-top:30px;">
+    
+    <ul>
+      <li>
+  
+        <span class="font-weight-bold">Account Id </span>  
+         {{account.accountId}}
+    
+  </li>
+    
+  <li>
+    <span class="font-weight-bold">
+    userBalance 
+    </span>
+
+    {{account.accountBalance | currency:'INR'}}
+    
+    </li>
+    
+    <li>
+    <span class="font-weight-bold">
+      status is 
+      </span>
+      {{account.status}}
+    </li>
+    
+    <li>
+      <span class="font-weight-bold">
+
+      userId is
+      </span>
+      {{account.userId}}
+
+    </li>
+    
+    </ul>
+ 
+  </div>

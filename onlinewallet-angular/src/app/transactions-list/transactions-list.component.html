@@ -1,0 +1,24 @@
+<h3>Transactions History</h3>
+
+<div *ngIf="transactions!==undefined" style="margin-top:20px">
+<table style="border-spacing: 10px; border-collapse: separate;">
+
+    <tr>
+<th>Transaction Id</th>
+<th>Amount</th>
+<th>Balance</th>
+<th>Transaction Type</th>
+</tr>
+<tr *ngFor="let transaction of transactions">
+   <td>   {{       transaction.transactionId    }}  </td>
+
+   <td> {{    transaction.amount | currency:'INR'    }} </td>
+
+  <td> {{      transaction.newBalance| currency:'INR'     }} </td>
+
+  <td>{{transaction.type}}</td>
+    
+</tr>
+</table>
+
+</div>
